@@ -1,0 +1,13 @@
+version: '2.3'
+services:
+  backend:
+    image: ubuntu:latest
+    restart: unless-stopped
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    device_cgroup_rules:
+      - 'c 8:* rmw'
+    volumes:
+      - /etc/fstab:/etc/fstab
+  
